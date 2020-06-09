@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FAFAFA"
+    tools:context=".activity.MainActivity">
+
+    <View
+        android:id="@+id/main_top_view"
+        android:layout_width="0dp"
+        android:layout_height="90dp"
+        android:background="#FF0000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/main_menu_btn"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="25dp"
+        android:background="#00FFFFFF"
+        android:scaleType="fitCenter"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_menu" />
+
+    <ImageButton
+        android:id="@+id/main_menu_search_btn"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="5dp"
+        android:background="#00FFFFFF"
+        android:scaleType="fitCenter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_menu_search" />
+
+    <Button
+        android:id="@+id/main_local_music_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="45dp"
+        android:layout_marginEnd="110dp"
+        android:layout_marginBottom="45dp"
+        android:background="#00FFFFFF"
+        android:backgroundTintMode="src_in"
+        android:text="本地音乐"
+        android:textColor="#FFFFFF"
+        android:textSize="22sp"
+        app:layout_constraintBottom_toBottomOf="@+id/main_top_view"
+        app:layout_constraintEnd_toEndOf="@+id/main_top_view"
+        app:layout_constraintStart_toStartOf="@+id/main_top_view"
+        app:layout_constraintTop_toTopOf="@+id/main_top_view"
+        app:layout_constraintVertical_bias="0.5" />
+
+    <Button
+        android:id="@+id/main_online_music_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="110dp"
+        android:background="#00FFFFFF"
+        android:text="在线音乐"
+        android:textColor="#999999"
+        android:textSize="22sp"
+        app:layout_constraintBottom_toBottomOf="@+id/main_top_view"
+        app:layout_constraintEnd_toEndOf="@+id/main_top_view"
+        app:layout_constraintStart_toStartOf="@+id/main_top_view"
+        app:layout_constraintTop_toTopOf="@+id/main_top_view" />
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/main_play_viewPager"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/main_play_bar_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/main_top_view" />
+
+    <View
+        android:id="@+id/main_play_bar_view"
+        android:layout_width="wrap_content"
+        android:layout_height="90dp"
+        android:background="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageButton
+        android:id="@+id/main_play_bar_playlist_btn"
+        android:layout_width="50dp"
+        android:layout_height="90dp"
+        android:background="#00FFFFFF"
+        app:layout_constraintBottom_toBottomOf="@+id/main_play_bar_view"
+        app:layout_constraintEnd_toEndOf="@+id/main_play_bar_view"
+        app:layout_constraintTop_toTopOf="@+id/main_play_bar_view"
+        app:srcCompat="@drawable/ic_play_bar_btn_playlist" />
+
+    <ImageButton
+        android:id="@+id/main_play_bar_next_btn"
+        android:layout_width="50dp"
+        android:layout_height="90dp"
+        android:background="#00FFFFFF"
+        app:layout_constraintBottom_toBottomOf="@+id/main_play_bar_view"
+        app:layout_constraintEnd_toStartOf="@+id/main_play_bar_playlist_btn"
+        app:layout_constraintTop_toTopOf="@+id/main_play_bar_view"
+        app:srcCompat="@drawable/ic_play_bar_btn_next" />
+
+    <ImageButton
+        android:id="@+id/main_play_bar_play_btn"
+        android:layout_width="50dp"
+        android:layout_height="90dp"
+        android:background="#00FFFFFF"
+        app:layout_constraintBottom_toBottomOf="@+id/main_play_bar_view"
+        app:layout_constraintEnd_toStartOf="@+id/main_play_bar_next_btn"
+        app:layout_constraintTop_toTopOf="@+id/main_play_bar_view"
+        app:srcCompat="@drawable/ic_play_bar_btn_play" />
+
+    <ImageButton
+        android:id="@+id/main_play_bar_music_image_btn"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="10dp"
+        android:background="#00FFFFFF"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="@+id/main_play_bar_view"
+        app:layout_constraintStart_toStartOf="@+id/main_play_bar_view"
+        app:layout_constraintTop_toTopOf="@+id/main_play_bar_view"
+        app:srcCompat="@drawable/play_page_default_cover" />
+
+    <TextView
+        android:id="@+id/main_play_bar_music_name_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="15dp"
+        android:text="歌曲名"
+        android:textSize="18sp"
+        app:layout_constraintStart_toEndOf="@+id/main_play_bar_music_image_btn"
+        app:layout_constraintTop_toTopOf="@+id/main_play_bar_view" />
+
+    <TextView
+        android:id="@+id/main_play_bar_author_name_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:text="作者"
+        android:textColor="#C8C8C8"
+        android:textSize="14sp"
+        app:layout_constraintStart_toEndOf="@+id/main_play_bar_music_image_btn"
+        app:layout_constraintTop_toBottomOf="@+id/main_play_bar_music_name_text" />
+
+    <View
+        android:id="@+id/main_play_bar_detail_view"
+        android:layout_width="0dp"
+        android:layout_height="90dp"
+        app:layout_constraintBottom_toBottomOf="@+id/main_play_bar_view"
+        app:layout_constraintEnd_toStartOf="@+id/main_play_bar_play_btn"
+        app:layout_constraintStart_toStartOf="@id/main_play_bar_view"
+        app:layout_constraintTop_toTopOf="@id/main_play_bar_view" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/play_page_default_bg">
+
+    <View
+        android:id="@+id/play_page_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#80000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/play_page_back_btn"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="20dp"
+        android:background="#00FFFFFF"
+        android:scaleType="fitCenter"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/play_page_view"
+        app:srcCompat="@drawable/ic_arrow_down" />
+
+    <TextView
+        android:id="@+id/play_page_music_name_text"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        android:text="歌名"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/play_page_back_btn"
+        app:layout_constraintTop_toTopOf="@+id/play_page_view" />
+
+    <TextView
+        android:id="@+id/play_page_author_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:text="作者"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/play_page_back_btn"
+        app:layout_constraintTop_toBottomOf="@+id/play_page_music_name_text" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/play_page_bottom_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_end="90dp" />
+
+    <ImageButton
+        android:id="@+id/play_page_loop_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#00FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/play_page_bottom_guideline"
+        app:srcCompat="@drawable/ic_play_btn_loop" />
+
+    <ImageButton
+        android:id="@+id/play_page_play_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#00FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/play_page_bottom_guideline"
+        app:srcCompat="@drawable/ic_play_btn_play" />
+
+    <ImageButton
+        android:id="@+id/play_page_prev_btn"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:background="#00FFFFFF"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/play_page_play_btn"
+        app:layout_constraintTop_toTopOf="@+id/play_page_bottom_guideline"
+        app:srcCompat="@drawable/ic_play_btn_prev" />
+
+    <ImageButton
+        android:id="@+id/play_page_next_btn"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:background="#00FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/play_page_play_btn"
+        app:layout_constraintTop_toTopOf="@id/play_page_bottom_guideline"
+        app:srcCompat="@drawable/ic_play_btn_next" />
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/play_page_viewPage"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="90dp"
+        app:layout_constraintBottom_toTopOf="@+id/play_page_bottom_guideline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </androidx.viewpager.widget.ViewPager>
+
+    <TextView
+        android:id="@+id/play_page_playing_time_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="00:00"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/play_page_bottom_guideline"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/play_page_total_time_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="00:00"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/play_page_bottom_guideline"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <SeekBar
+        android:id="@+id/play_page_seekBar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/play_page_bottom_guideline"
+        app:layout_constraintEnd_toStartOf="@+id/play_page_total_time_text"
+        app:layout_constraintStart_toEndOf="@+id/play_page_playing_time_text" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

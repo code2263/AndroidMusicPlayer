@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/rank_billboard_bg_view"
+        android:layout_width="0dp"
+        android:layout_height="270dp"
+        android:scaleType="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/rank_top_view" />
+
+    <View
+        android:id="@+id/rank_top_view"
+        android:layout_width="0dp"
+        android:layout_height="90dp"
+        android:background="#FF0000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/rank_back_btn"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="#00FFFFFF"
+        android:rotation="90"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="@+id/rank_top_view"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_arrow_down" />
+
+    <TextView
+        android:id="@+id/rank_top_title_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="百度热搜榜"
+        android:textColor="#FFFFFF"
+        android:textSize="26sp"
+        app:layout_constraintBottom_toBottomOf="@+id/rank_top_view"
+        app:layout_constraintStart_toEndOf="@+id/rank_back_btn"
+        app:layout_constraintTop_toTopOf="@+id/rank_top_view" />
+
+    <ImageView
+        android:id="@+id/rank_billboard_img_view"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:layout_marginStart="10dp"
+        app:layout_constraintBottom_toBottomOf="@+id/rank_billboard_bg_view"
+        app:layout_constraintStart_toStartOf="@+id/rank_billboard_bg_view"
+        app:layout_constraintTop_toBottomOf="@+id/rank_top_view" />
+
+    <TextView
+        android:id="@+id/rank_billboard_title_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="25dp"
+        android:text="热歌榜"
+        android:textColor="#FFFFFF"
+        app:layout_constraintStart_toEndOf="@+id/rank_billboard_img_view"
+        app:layout_constraintTop_toBottomOf="@+id/rank_top_view" />
+
+    <TextView
+        android:id="@+id/rank_billboard_updateTime_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:text="最近更新:2020-5-25"
+        android:textColor="#FFFFFF"
+        app:layout_constraintStart_toEndOf="@+id/rank_billboard_img_view"
+        app:layout_constraintTop_toBottomOf="@+id/rank_billboard_title_text" />
+
+    <TextView
+        android:id="@+id/rank_billboard_desc_text"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:text="该榜单是根据千千静听平台......"
+        android:textColor="#FFFFFF"
+        app:layout_constraintStart_toEndOf="@+id/rank_billboard_img_view"
+        app:layout_constraintTop_toBottomOf="@+id/rank_billboard_updateTime_text" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rank_recycler"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rank_billboard_bg_view" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
