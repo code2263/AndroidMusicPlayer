@@ -1,13 +1,16 @@
 package com.example.musicplayer.activity;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
+import androidx.core.app.ActivityCompat;
 import androidx.viewpager.widget.ViewPager;
 
+import android.Manifest;
 import android.app.Service;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.content.ServiceConnection;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -16,6 +19,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.musicplayer.adapter.MainAdapter;
 import com.example.musicplayer.R;
@@ -60,6 +64,13 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //检查是否已经授权,没有授权则运行时发起授权申请
+        if (ActivityCompat.checkSelfPermission(MainActivity.this, Manifest.permission.INTERNET) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.INTERNET}, 1);
+        }
+        if (ActivityCompat.checkSelfPermission(MainActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED){
+            ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE}, 1);
+        }
         //开启音乐服务
         intent = new Intent(MainActivity.this, MusicService.class);
         startService(intent);
@@ -192,5 +203,18 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
         unbindService(connection);
         stopService(intent);
         super.onDestroy();
+    }
+
+    //动态申请权限
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        switch (requestCode) {
+            case 1:
+                if (grantResults.length>0 && grantResults[0] != PackageManager.PERMISSION_GRANTED) {
+                    //用户拒绝授权则出现提示
+                    Toast.makeText(this, "Permission Deny", Toast.LENGTH_SHORT).show();
+                }
+                break;
+        }
     }
 }
